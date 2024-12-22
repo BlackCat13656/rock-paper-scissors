@@ -1,36 +1,12 @@
 //ROCK PAPER SCISSORS GAME-----played against computer--
 
-//COMPUTER CHOICE
-//generate computer choice
-//assign computer choice to a variable
-//return computer choice variable
+//GLOBAL SCOPE--------------
 
-//HUMAN CHOICE
-//ask get human choice
-//assign choice to variable
-//return human choice variable
-
-//SCORE VARIABLES DCLARATION
-
-//PLAY ROUND
-//get computer and human choices 
-//compare both options
-//declare a winner
-
-//PLAY GAME
-//loop PLAY ROUND 5 times
-//output declare a winner
+let humanSelection = getHumanChoice;
+let computerSelection = getComputerChoice;
 
 
-
-//GLOBAL SCOPE
-
-
-let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice();
-
-
-//COMPUTER CHOICE
+//COMPUTER CHOICE------------
 
 function getComputerChoice() {
 
@@ -40,7 +16,7 @@ function getComputerChoice() {
 
     if (randomNumber === 0) {
         computerChoice = "rock";
-    } else if (randomNumber == 1) {
+    } else if (randomNumber === 1) {
         computerChoice = "paper"; 
     } else {
         computerChoice = "scissors";
@@ -49,15 +25,15 @@ function getComputerChoice() {
 }
 
 
-//HUMAN CHOICE
+//HUMAN CHOICE--------------
 
 function getHumanChoice() {
 
     let humanChoice = prompt("Choose One---Rock, Paper or Scissors");
 
-    if (humanChoice.toLowerCase() == "rock" ||
-        humanChoice.toLowerCase() == "paper" ||
-        humanChoice.toLowerCase() == "scissors") {
+    if (humanChoice.toLowerCase() === "rock" ||
+        humanChoice.toLowerCase() === "paper" ||
+        humanChoice.toLowerCase() === "scissors") {
         alert("Nice Selection");
     } else {
         return getHumanChoice(); 
@@ -67,49 +43,67 @@ function getHumanChoice() {
 }
 
 
-//PLAY GAME
+//PLAY AGAIN----------------
+
+function playAgain() {
+        
+    let yesOrNo = confirm("Do you want to play again?");
+
+    if (yesOrNo == true) {
+        playGame();
+    } else {
+        alert("Have a Nice Day!")
+    }
+}
+
+
+//PLAY GAME FUNCTION------------
 
 function playGame() {
-    
+
     let humanScore = 0;
     let computerScore = 0;
 
-    //PLAY ROUND
+    //PLAY ROUND------------
 
     function playRound(humanChoice, computerChoice) {
 
         if (humanChoice === computerChoice) {
-        alert("It's a tie");
-        } else if (humanChoice == "rock" && computerChoice == "scissors") {
-        alert("One Point for the Human, rock beat scissors");
-        ++humanScore; 
-        } else if (humanChoice == "paper" && computerChoice == "rock") {
-        alert("One Point for the Human, paper beat rock");
-        ++humanScore;
-        } else if (humanChoice == "scissors" && computerChoice == "paper") {
-        alert("One point for the human, scissors beat paper");
-        ++humanScore;
+            alert("It's a tie");
+        } else if (humanChoice === "rock" && computerChoice === "scissors") {
+            alert("One Point for the Human, rock beat scissors");
+            ++humanScore; 
+        } else if (humanChoice === "paper" && computerChoice === "rock") {
+            alert("One Point for the Human, paper beat rock");
+            ++humanScore;
+        } else if (humanChoice === "scissors" && computerChoice === "paper") {
+            alert("One point for the human, scissors beat paper");
+            ++humanScore;
         } else {
-        alert("One Point for the COMPUTER!")
-        ++computerScore;
+            alert("One Point for the COMPUTER!")
+            ++computerScore;
         }
     }
-   
-    for (i = 0; i < 5; i++) {
-        playRound(humanSelection, computerSelection);
-    } 
+
+    //5 GAME ROUNDS-------
+
+    playRound(humanSelection(), computerSelection());
+    playRound(humanSelection(), computerSelection());
+    playRound(humanSelection(), computerSelection());
+    playRound(humanSelection(), computerSelection());
+    playRound(humanSelection(), computerSelection());
+
 
     if (humanScore > computerScore) {
-        alert(`Human Wins with Human score: ${humanScore} vs Computer Score: ${computerScore} `);
+        alert(`Human wins with a score of: ${humanScore} vs ${computerScore}`);
+    } else if (humanScore < computerScore) {
+        alert(`Computer wins with a score of: ${computerScore} vs ${humanScore}`);
     } else {
-        alert(`Computer Wins wit Computer score: ${computerScore} vs Human score: ${humanScore}`);
+        alert(`No one wins, the game is a tie with a score of: ${humanScore} vs ${computerScore}`);
     }
+
+    playAgain();
+
 }
 
 playGame();
-
-
-
-
-
-
