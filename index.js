@@ -1,13 +1,11 @@
 //ROCK PAPER SCISSORS GAME-----played against computer--
 
 //GLOBAL SCOPE--------------
-
 let humanSelection = getHumanChoice;
 let computerSelection = getComputerChoice;
 
 
 //COMPUTER CHOICE------------
-
 function getComputerChoice() {
 
     let computerChoice; 
@@ -26,17 +24,21 @@ function getComputerChoice() {
 
 
 //HUMAN CHOICE--------------
-
 function getHumanChoice() {
 
     let humanChoice = prompt("Choose One---Rock, Paper or Scissors");
+
+    if (humanChoice === null) {
+        alert("You're a Quitter....See You next time");
+    }
 
     if (humanChoice.toLowerCase() === "rock" ||
         humanChoice.toLowerCase() === "paper" ||
         humanChoice.toLowerCase() === "scissors") {
         alert("Nice Selection");
     } else {
-        return getHumanChoice(); 
+        alert("please choose a valid selection");
+        getHumanChoice();
     }
    
     return humanChoice.toLowerCase();
@@ -44,7 +46,6 @@ function getHumanChoice() {
 
 
 //PLAY AGAIN----------------
-
 function playAgain() {
         
     let yesOrNo = confirm("Do you want to play again?");
@@ -58,14 +59,13 @@ function playAgain() {
 
 
 //PLAY GAME FUNCTION------------
-
 function playGame() {
-
     let humanScore = 0;
     let computerScore = 0;
 
-    //PLAY ROUND------------
+    alert("The Player with most wins in 5 rounds wins");
 
+    //PLAY ROUND------------
     function playRound(humanChoice, computerChoice) {
 
         if (humanChoice === computerChoice) {
