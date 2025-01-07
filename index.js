@@ -22,28 +22,6 @@ function getComputerChoice() {
 }
 
 
-//HUMAN CHOICE--------------
-function getHumanChoice() {
-
-    let humanChoice = prompt("Choose One---Rock, Paper or Scissors");
-
-    if (humanChoice === null) {
-        let quitterMessage = alert("You're a Quitter....See You next time");
-        return quitterMessage;
-    } else {
-        if (humanChoice.toLowerCase() === "rock" ||
-            humanChoice.toLowerCase() === "paper" ||
-            humanChoice.toLowerCase() === "scissors") {
-            alert("Nice Selection");
-        } else {
-            humanChoice.valueOf = "";
-            alert("please choose a valid selection");
-            getHumanChoice();
-        }
-    }
-    return humanChoice.toLowerCase();
-}
-
 
 //PLAY ROUND------------
 function playRound(humanChoice, computerChoice) {
@@ -77,6 +55,3 @@ function playAgain() {
         alert("Have a Nice Day!")
     }
 }
-
-
-console.log(humanSelection());
