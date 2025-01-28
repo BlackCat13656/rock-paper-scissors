@@ -1,57 +1,64 @@
-//GLOBAL SCOPE--------------
-const humanScore = 0;
-const computerScore = 0;
-let computerSelection = getComputerChoice;
-let humanSelection = getHumanChoice;
+"use strict"; 
 
+// Declaration
+const options = ["rock", "paper", "scissors"];
+let humanScore = 0;
+let computerScore = 0; 
 
-//COMPUTER CHOICE------------
-function getComputerChoice() {
+// Computer Choice Function
+const getComputerChoice = function() {
+    // Generate a random number
+    let randomNumber = Math.trunc(Math.random() * 3);
+    let randomChoice = options[randomNumber];
+    return randomChoice; 
+}
+// Human Choice Function
+const getHumanChoice = function() {
+    //Human Input
+    let humanInput = prompt("Choose One---Rock, Paper or Scissors or Leave Blank to Quit");
 
-    let computerChoice; 
-    let randomNumber = Math.floor(Math.random() * 3) ;
-
-    if (randomNumber === 0) {
-        computerChoice = "rock";
-    } else if (randomNumber === 1) {
-        computerChoice = "paper"; 
+    if (humanInput === null || humanInput === "") {
+        alert("You're a Quitter !!!"); 
+        return null; 
+    } else if (humanInput.toLowerCase() === "rock" ||
+        humanInput.toLowerCase() === "paper" ||
+        humanInput.toLowerCase() === "scissors"
+    ) {
+        alert("Good Choice!!!"); 
+        return humanInput.toLowerCase();
     } else {
-        computerChoice = "scissors";
+        alert("Invalid Choice--Choose One--Rock, Paper or Scissors");
+        return undefined; 
     }
-    return computerChoice; 
 }
 
 
 
-//PLAY ROUND------------
-function playRound(humanChoice, computerChoice) {
+//AJUSTAR IF STATEMENTS !!!!
 
-    if (humanChoice === computerChoice) {
-        alert("It's a tie");
-    } else if (humanChoice === "rock" && computerChoice === "scissors") {
-        alert("One Point for the Human, rock beat scissors");
-        ++humanScore; 
+const playRound = function(humanChoice, computerChoice) {
+
+    if (humanChoice === "rock" && computerChoice === "scissors") {
+        console.log("You Win---Rock Beats scissors");
+        humanScore++;
     } else if (humanChoice === "paper" && computerChoice === "rock") {
-        alert("One Point for the Human, paper beat rock");
-        ++humanScore;
+        console.log("You Win---Paper Beats rock");
+        humanScore++;
     } else if (humanChoice === "scissors" && computerChoice === "paper") {
-        alert("One point for the human, scissors beat paper");
-        ++humanScore;
+        console.log("You Win---Scissors Beat paper");
+        humanScore++;
+    } else if (humanChoice === "rock" && computerChoice === "paper") {
+        console.log("You Loose--- Paper Beats rock");
+        computerScore++;
+    } else if (humanChoice === "paper" && computerChoice === "scissors") {
+        console.log("You Loose---Scissors Beat paper");
+        computerScore++;
     } else {
-        alert("One Point for the COMPUTER!")
-        ++computerScore;
+        console.log("You Loose---Rock Beats Scissors");
+        computerScore++;
     }
 }
 
-
-//PLAY AGAIN----------------
-function playAgain() {
-        
-    let yesOrNo = confirm("Do you want to play again?");
-
-    if (yesOrNo == true) {
-        playGame();
-    } else {
-        alert("Have a Nice Day!")
-    }
-}
+playRound();
+console.log(getComputerChoice());
+console.log(getHumanChoice());
