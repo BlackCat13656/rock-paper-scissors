@@ -22,3 +22,8 @@
   cursor: pointer;
   background-color: rgb(212, 140, 57);
 }
+
+.scores-container {
+  display: flex;
+  flex-direction: row;
+}
