@@ -32,7 +32,6 @@ const playRound = function (humanChoice, computerChoice) {
   ) {
     scoreMessage.textContent = `You Win---${humanChoice} beat ${computerChoice}`;
     printHumanScore.textContent = ++humanScore;
-    rockBtn.hasAttribute;
   } else {
     scoreMessage.textContent = `You Loose---${computerChoice} beat ${humanChoice}`;
     printComputerScore.textContent = ++computerScore;
