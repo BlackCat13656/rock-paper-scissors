@@ -11,13 +11,13 @@
 
 .btn {
   color: black;
-  font-size: 48px;
-  padding: 15px;
+  font-size: 40px;
+  padding: 10px;
   text-align: center;
-  width: 200px;
+  width: 180px;
   height: auto;
   margin: 15px;
-  border: 3px solid black;
+  border: 2px solid black;
   border-radius: 30px;
   cursor: pointer;
   background-color: rgb(212, 140, 57);
@@ -26,4 +26,36 @@
 .scores-container {
   display: flex;
   flex-direction: row;
+}
+
+.human {
+  margin: 30px;
+}
+
+.computer {
+  margin: 30px;
+}
+
+.number {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.finalScoreMessage {
+  margin: 30px;
+  font-size: 22px;
+}
+
+.startAgain {
+  color: black;
+  font-size: 20px;
+  padding: 10px;
+  text-align: center;
+  width: 130px;
+  height: auto;
+  margin: 15px;
+  border: 2px solid black;
+  border-radius: 30px;
+  cursor: pointer;
+  background-color: rgb(163, 163, 163);
 }
